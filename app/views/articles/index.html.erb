@@ -1,0 +1,46 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+  <%= link_to "BlogApp", root_path, class:"navbar-brand" %>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        
+      </ul>
+      
+        <button class="btn btn-success" type="submit">Sign In</button>
+        <button class="btn btn-success" type="submit">Login</button>
+     
+    </div>
+  </div>
+</nav>
+
+
+<h1>This are our list of articles!</h1>
+
+<h5>Our blog has <%= Article.public_count %>  articles and counting!  </h5>
+
+<ul> 
+    <% @articles.each do |item| %>
+        <% unless item.archived?  %>    
+            <li>
+                <%= link_to item.title, item %> 
+            </li>
+        <% end  %>
+    <% end %>
+
+</ul>
+
+<%= link_to "New Article", new_article_path %>
